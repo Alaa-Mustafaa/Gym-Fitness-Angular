@@ -1,0 +1,84 @@
+<footer class="site-footer pt-5">
+  <img src="../../../../../assets/images/footer_right_icon.png" class="right-img"/>
+  <img src="../../../../../assets/images/footer_left_icon.png" class="left-img"/>
+  <div class="container w-75 py-4">
+    <div class="row gy-5 justify-content-between">
+      <!-- Brand -->
+      <div class="col-lg-3 col-sm-6">
+        <a routerLink="/" aria-label="Xtreme Fitness home">
+          <img
+            src="assets/images/xtreme_fitness_logo.png"
+            alt="Xtreme Fitness"
+            class="footer-logo mb-4"
+          />
+        </a>
+        <p class="footer-muted">
+          Train harder, get stronger, and reach your goals with expert coaches and modern equipment.
+        </p>
+        <ul class="footer-socials">
+          @for (social of socials; track social.label) {
+            <li>
+              <a target="_blank" rel="noopener" [attr.aria-label]="social.label">
+                <i class="fa-brands {{ social.icon }}"></i>
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Opening hours -->
+      <div class="col-lg-2 col-sm-6">
+        <h6 class="footer-title">Opening Hours</h6>
+        <ul class="footer-list">
+          @for (item of openingHours; track item.days) {
+            <li>
+              <span class="footer-light">{{ item.days }}</span>
+              <span class="footer-muted">{{ item.hours }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Quick links -->
+      <div class="col-lg-2 col-sm-6">
+        <h6 class="footer-title">Quick Links</h6>
+        <ul class="footer-list">
+          @for (link of quickLinks; track link.path) {
+            <li>
+              <a class="footer-link" [routerLink]="link.path">
+                <i class="fa-solid fa-angle-right"></i> {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-lg-2 col-sm-6">
+        <h6 class="footer-title">Contact Us</h6>
+        <address class="footer-list">
+          <p class="footer-contact">
+            <i class="fa-solid fa-location-dot"></i>
+            <span class="footer-muted">{{ contact.address }}</span>
+          </p>
+          <p class="footer-contact">
+            <i class="fa-solid fa-phone"></i>
+            <a class="footer-link" [href]="'tel:' + contact.phone">{{ contact.phone }}</a>
+          </p>
+          <p class="footer-contact">
+            <i class="fa-solid fa-envelope"></i>
+            <a class="footer-link" [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+          </p>
+        </address>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom mt-5">
+    <div class="container">
+      <p class="footer-muted text-center m-0 py-4">
+        &copy; xtremefitness.com. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
